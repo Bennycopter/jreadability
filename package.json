@@ -1,6 +1,6 @@
 {
   "name": "jreadability",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unofficial Japanese text readability calculator based on 'jReadability' (https://jreadability.net)",
   "main": "index.js",
   "scripts": {
