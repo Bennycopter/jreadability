@@ -1,0 +1,29 @@
+{
+  "name": "jreadability",
+  "version": "1.0.0",
+  "description": "Unofficial Japanese text readability calculator based on 'jReadability' (https://jreadability.net)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bennycopter/jreadability.git"
+  },
+  "keywords": [
+    "japanese",
+    "readability",
+    "mecab",
+    "text-analysis"
+  ],
+  "author": "Ben Maerkle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bennycopter/jreadability/issues"
+  },
+  "homepage": "https://github.com/Bennycopter/jreadability#readme",
+  "type": "module",
+  "dependencies": {
+    "@enjoyjs/node-mecab": "^0.5.0"
+  }
+}
