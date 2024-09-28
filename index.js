@@ -15,10 +15,10 @@ export class Analyzer {
 
     analyzeSync(text) {
         const mecabRawOutput = analyzeSync(text, { dicdir: this.dictionaryDirectory });
-        return this._calculateReadability(text, mecabRawOutput);
+        return this._calculateReadability(mecabRawOutput);
     }
 
-    _calculateReadability(text, mecabRawOutput) {
+    _calculateReadability(mecabRawOutput) {
         const tokens = this._getWordTokensFromMecabRawOutput(mecabRawOutput);
         const tokenProportions = this._getTokenProportions(tokens);
         const averageSentenceLength = this._getAverageSentenceTokenCounts(tokens);
@@ -36,7 +36,7 @@ export class Analyzer {
 
         return tokenLines.map(tokenLine=>{
             // Each line looks like this:
-            // 先生    名詞,普通名詞,一般,*,*,*,センセイ,先生,先生,センセー,先生,センセー,漢,*,*,*,*,*,*,体,センセイ,センセイ,センセイ,センセイ,3,C2,*,5642161131495936,20526
+            // 先生\t名詞,普通名詞,一般,*,*,*,センセイ,先生,先生,センセー,先生,センセー,漢,*,*,*,*,*,*,体,センセイ,センセイ,センセイ,センセイ,3,C2,*,5642161131495936,20526
             const [surfaceForm, tokenDetailString] = tokenLine.split("\t");
 
             // There are a lot of details, but the only ones we care about are:
@@ -101,7 +101,7 @@ export class Analyzer {
             }
         }
 
-        return sentences.map(sentence=>sentence.length).reduce((p,c)=>p+c,0) / sentences.length;
+        return tokens.length / sentences.length;
     }
 }
 
